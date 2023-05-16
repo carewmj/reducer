@@ -1,5 +1,5 @@
+// Based on an example on the following link: https://youtu.be/kK_Wqx3RnHk
 import React, { useReducer } from 'react'
-
 
 function reducer(state, action){
   switch (action.type) {
