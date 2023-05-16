@@ -1,3 +1,4 @@
+// Based on an example on the following link: https://youtu.be/kK_Wqx3RnHk
 // useState hook for managing state
 import React, { useState } from 'react'
 
