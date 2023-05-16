@@ -10,8 +10,8 @@ function reducer(count, action){
 
 function App() {
 
-  const [count, dispatch]  = useReducer(reducer, 0);    //could define this like useState
-  
+  const [count, dispatch]  = useReducer(reducer, 0);
+  //could define this like useState
   // dispatch is what is called to update state
 
   // increment is the '+' button click handler
