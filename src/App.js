@@ -1,69 +1,37 @@
-// Added by carewmj@gmail.com
-// 15:51 17/05/23
-// Added this to the carewmj branch
-//testing
-// 0.
-// import React, { useState } from 'react'
-// 1.
+// Based on an example on the following link: https://youtu.be/kK_Wqx3RnHk
+// Change 16:51
+
 import React, { useReducer } from 'react'
-// 2.
-//import React, { useState, useReducer } from 'react'
 
+const ACTIONS = {
+  INCREMENT: 'increment',
+  DECREMENT: 'decrement'
+}
 
-function reducer(){
-//function reducer(state, action){
-  // reducer returns the new updated state
+function reducer(state, action){
+  //reducer returns the new updated state
   // action is what is passed into the dispatch function
-  // 1. 
-  //return { count: state.count +1 } // each call to dispatch will increment the count by 1
-  // switch (action.type) {
-  //   case  'increment':
-  //     return { count: state.count + 1 }
-  //   case  'deccrement':
-  //     return { count: state.count - 1 }
-  //   default:
-  //     return state
-  // }
-  //return { count: state.count + 1 }
-  //return count + 1 ;
+  switch (action.type) {
+    case  ACTIONS.INCREMENT:
+      return { count: state.count + 1 }
+    case  ACTIONS.DECREMENT:
+      return { count: state.count - 1 }
+    default:
+      return state
+  }
 }
 
 function App() {
-  // 0.
-  // const [count, setCount] = useState(0);
-  // 1.
-  function reducer(){
-    return count + 1 ;
-  }
-  const [count, dispatch]  = useReducer(reducer, 0);    //could define this like useState
-  //const [state, dispatch]  = useReducer(reducer, { count: 0});
+  const [state, dispatch]  = useReducer(reducer, { count: 0});
   // dispatch is what is called to update state
 
-  function reducer(){
-    return count + 1 ;
-  }
-
   function increment(){
-    // 0.
-    // setCount(prevCount => prevCount + 1)
-    // 1. 
-    dispatch()
-    // 2.
-    // dispatch( {type: 'increment'})
+    dispatch( {type: ACTIONS.INCREMENT})
   }
   function decrement(){
-    // 0.
-    //setCount(prevCount => prevCount - 1)
-    // 1.
-    // ...
-    // 2. 
-    // dispatch( {type: 'decrement' })
+    dispatch( {type: ACTIONS.DECREMENT })
   }
-  // 4. Constant Action references 
-  // const ACTIONS = {
-  //   INCREMENT: 'increment',
-  //   DECREMENT: 'decrement'
-  // }
+
 
 
   
@@ -71,11 +39,7 @@ function App() {
   return (
     <>
     <button onClick={decrement}>-</button>
-    {/* 0. */}
-    <span>{count}</span>
-
-    {/* 1 & 2.
-    <span>{state.count}</span> */}
+    <span>{state.count}</span>
     <button onClick={increment}>+</button>
     </>
   );
